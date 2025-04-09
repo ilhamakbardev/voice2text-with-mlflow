@@ -1,6 +1,6 @@
 # 🗣️ Voice2Text - MLflow Whisper Evaluation
 
-This project allows you to **record Indonesian speech**, **transcribe it using OpenAI's Whisper models**, and **evaluate transcription performance** with MLflow tracking. it run locally.
+This project allows you to **record Indonesian speech**, **transcribe it using Whisper models**, and **evaluate transcription performance** with MLflow tracking. it run locally.
 
 ---
 
