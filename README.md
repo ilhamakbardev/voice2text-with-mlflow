@@ -9,7 +9,7 @@ This project allows you to **record Indonesian speech**, **transcribe it using W
 - 🎙️ Record audio samples directly from CLI
 - 🧠 Transcribe using Whisper models (`base`, `small`, `medium`)
 - 📊 Log metrics and artifacts to MLflow
-- 📈 Visualize model performance (inference time, WER)
+- 📈 Visualize model performance (inference time, text length)
 - 🧪 Compare models via `eval_all_models.py`
 - 💻 **Cross-platform** : works on **Windows**, **macOS**, and **Linux**.
 
