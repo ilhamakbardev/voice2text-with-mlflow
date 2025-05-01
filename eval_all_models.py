@@ -2,7 +2,7 @@ import warnings
 import os
 import mlflow
 from pathlib import Path
-from utils.recorder import record_audio
+from utils.recorder import record_audio_dynamic
 from models.base_model import run as run_base
 from models.small_model import run as run_small
 from models.medium_model import run as run_medium
@@ -15,7 +15,7 @@ workspace_audio_dir = Path("audio_recorded")
 workspace_audio_dir.mkdir(parents=True, exist_ok=True)
 audio_path = workspace_audio_dir / "eval_sample.wav"
 
-record_audio(str(audio_path), duration=5)
+record_audio_dynamic(str(audio_path))
 
 mlflow.set_experiment("voice2text-eval")
 

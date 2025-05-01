@@ -1,4 +1,3 @@
-from utils.recorder import record_audio
 from utils.transcriber import transcribe_audio
 import mlflow
 
