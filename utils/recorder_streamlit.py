@@ -4,10 +4,11 @@ import numpy as np
 import queue
 import time
 from pathlib import Path
+import streamlit as st
 
 
-def record_audio_dynamic(filepath: str, silence_threshold=0.01, silence_duration=2, sample_rate=16000):
-    print("🎙️ Waiting for sound to start recording...")
+def record_audio_dynamic_streamlit(filepath: str, silence_threshold=0.015, silence_duration=2, sample_rate=16000):
+    st.info("🎙️ Waiting for sound to start recording...")
 
     q_audio = queue.Queue()
     recording = []
@@ -24,7 +25,7 @@ def record_audio_dynamic(filepath: str, silence_threshold=0.01, silence_duration
 
             if volume_norm > silence_threshold:
                 if not is_recording:
-                    print("🔴 Sound detected, recording started...")
+                    st.info("🔴 Sound detected, recording started...")
                     is_recording = True
                 recording.append(audio_chunk)
                 silence_start = None
@@ -33,11 +34,11 @@ def record_audio_dynamic(filepath: str, silence_threshold=0.01, silence_duration
                 if silence_start is None:
                     silence_start = time.time()
                 elif time.time() - silence_start >= silence_duration:
-                    print("⏹️ Silence detected, stopping recording.")
+                    st.info("⏹️ Silence detected, stopping recording.")
                     break
 
     audio_np = np.concatenate(recording, axis=0)
     filepath = Path(filepath)
     filepath.parent.mkdir(parents=True, exist_ok=True)
     sf.write(str(filepath), audio_np, sample_rate)
-    print(f"✅ Saved to {filepath}")
+    st.info(f"✅ Saved to {filepath}")
