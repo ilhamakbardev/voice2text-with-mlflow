@@ -1,4 +1,5 @@
 .venv
+.venv-ubuntu
 __pycache__
 mlruns
 audio_recorded
