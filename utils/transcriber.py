@@ -4,6 +4,11 @@ import mlflow
 from utils.ffmpeg_path import get_ffmpeg_path
 import os
 
+import torch
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model = whisper.load_model("base", device=device)
+
 
 def transcribe_audio(audio_path: str, model_name: str):
     ffmpeg_path = get_ffmpeg_path()
